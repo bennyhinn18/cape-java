@@ -6,7 +6,7 @@ import com.cistron.training.sample.DataManipulation;
 import com.cistron.training.sample.FileManipulation;
 import com.cistron.training.sample.NetworkUtil;
 import com.cistron.training.thread.ThreadRunExample;
-import com.cistron.app.department.model.Department;
+import com.cistron.app.student.model.Department;
 import com.cistron.app.student.model.College;
 
 public class Start {
@@ -33,7 +33,7 @@ public class Start {
 		fileManipulation.createFile();
 		fileManipulation.writeFile();
 		fileManipulation.readFile();
-		fileManipulation.deleteFile();
+//		fileManipulation.deleteFile();
 		
 //		ThreadRunExample threadRunExample = new ThreadRunExample();
 //		threadRunExample.threadDemo();

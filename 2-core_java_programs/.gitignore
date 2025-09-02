@@ -1,0 +1,38 @@
+# Java compiled class files
+*.class
+
+# Java archive files
+*.jar
+*.war
+*.ear
+
+# Eclipse project files
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA project files
+.idea/
+*.iml
+
+# NetBeans project files
+nbproject/
+
+# VS Code settings
+.vscode/
+
+# Build directories
+/build/
+target/
+
+# Maven dependencies (if not using version-controlled dependencies)
+*.log
+mvnw
+mvnw.cmd
+
+# Gradle files (if you're using Gradle)
+.gradle/
+build/
+
+# Java debugger configuration files
+*.launch
