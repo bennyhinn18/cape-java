@@ -154,7 +154,7 @@ public class DataManipulation {
 			connection = DriverManager.getConnection(datasourceURL, dbUsername, dbPassword);
 			
 			//String query = "SELECT * FROM students";
-			String query = "INSERT INTO `students`(`name`,`address`,`phone_number`,`email`,`gender_id`) VALUES ('Example Name', 'Example Address', 'Example Phone', 'Example Email', 1)";			
+			String query = "INSERT INTO `students`(`name`,`address`,`phone_number`,`email`,`gender_id`) VALUES ('Example Name', 'Example Address', 'Example Phone', 'Example Email', 3)";			
 			
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.executeUpdate();
@@ -233,7 +233,7 @@ public class DataManipulation {
 			connection = DriverManager.getConnection(datasourceURL, dbUsername, dbPassword);
 			
 			//String query = "UPDATE `students` SET `gender_id` = 2 WHERE id = 1";
-			String query = "UPDATE `students` SET `gender_id` = 2";
+			String query = "UPDATE `students` SET `gender_id` = 4";
 			
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.executeUpdate();
