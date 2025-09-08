@@ -46,22 +46,25 @@ This project is a comprehensive Java learning environment featuring database con
 ### 1. Database Setup
 
 ```bash
-# Start MySQL container
+# Start MySQL container (IMPORTANT: Include -p 3306:3306 for port mapping)
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=rootpassword -p 3306:3306 -d mysql:latest
 
 # Create database and tables
+docker exec mysql-container mysql -uroot -prootpassword -e "CREATE DATABASE IF NOT EXISTS student_management;"
 docker exec -i mysql-container mysql -uroot -prootpassword student_management < db/New\ Database\ and\ Tabsles.sql
 ```
 
-### 2. Build and Run
+### 2. Build and Run (No Maven Required)
 
 ```bash
-# Using the convenience script
-./dev.sh setup    # Setup dependencies
-./dev.sh compile  # Compile the project
-./dev.sh run      # Run the application
+# Simple way - compile and run in one step
+./quick-run.sh
 
-# Or using Maven directly
+# Or step by step
+./run.sh compile  # Compile the project
+./run.sh run      # Run the application
+
+# Or using Maven (if preferred)
 mvn clean compile
 mvn exec:java
 ```
