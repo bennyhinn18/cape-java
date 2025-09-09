@@ -18,6 +18,7 @@ public class DataManipulation {
 	String dbPassword = "rootpassword";
 	
 	public void readDataFromDatabase() {
+		System.out.println("=== Reading Data From Database ===");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -79,6 +80,7 @@ public class DataManipulation {
 			}
 			
 		} catch (final Exception e) {
+			System.err.println("Error in readDataFromDatabase: " + e.getMessage());
 			e.printStackTrace();
 			if (resultSet != null) {
 				try {
@@ -143,6 +145,7 @@ public class DataManipulation {
 	}
 
 	public void insertDataIntoDatabase() {
+		System.out.println("=== Inserting Data Into Database ===");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -154,10 +157,11 @@ public class DataManipulation {
 			connection = DriverManager.getConnection(datasourceURL, dbUsername, dbPassword);
 			
 			//String query = "SELECT * FROM students";
-			String query = "INSERT INTO `students`(`name`,`address`,`phone_number`,`email`,`gender_id`) VALUES ('Example Name', 'Example Address', 'Example Phone', 'Example Email', 3)";			
+			String query = "INSERT INTO `students`(`name`,`address`,`phone_number`,`email`,`gender_id`,`department_id`) VALUES ('Test Student', 'Test Address, Test City', '9999999999', 'test@email.com', 1, 1)";			
 			
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.executeUpdate();
+			int rowsAffected = preparedStatement.executeUpdate();
+			System.out.println("Successfully inserted " + rowsAffected + " student record(s)");
 
 			if (preparedStatement != null) {
 				try {
@@ -222,6 +226,7 @@ public class DataManipulation {
 	}	
 
 	public void updateDataToDatabase() {
+		System.out.println("=== Updating Data In Database ===");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -233,10 +238,11 @@ public class DataManipulation {
 			connection = DriverManager.getConnection(datasourceURL, dbUsername, dbPassword);
 			
 			//String query = "UPDATE `students` SET `gender_id` = 2 WHERE id = 1";
-			String query = "UPDATE `students` SET `gender_id` = 4";
+			String query = "UPDATE `students` SET `gender_id` = 2 WHERE name = 'Test Student'";
 			
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.executeUpdate();
+			int rowsAffected = preparedStatement.executeUpdate();
+			System.out.println("Successfully updated " + rowsAffected + " student record(s)");
 
 			if (preparedStatement != null) {
 				try {
@@ -301,6 +307,7 @@ public class DataManipulation {
 	}	
 
 	public void deleteDataFromDatabase() {
+		System.out.println("=== Deleting Data From Database ===");
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		
@@ -312,10 +319,11 @@ public class DataManipulation {
 			connection = DriverManager.getConnection(datasourceURL, dbUsername, dbPassword);
 			
 			//String query = "SELECT * FROM students";
-			String query = "DELETE FROM students";
+			String query = "DELETE FROM students WHERE name = 'Test Student'";
 			
 			preparedStatement = connection.prepareStatement(query);
-			preparedStatement.executeUpdate();
+			int rowsAffected = preparedStatement.executeUpdate();
+			System.out.println("Successfully deleted " + rowsAffected + " student record(s)");
 
 			if (preparedStatement != null) {
 				try {

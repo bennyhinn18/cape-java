@@ -21,14 +21,14 @@ public class Start {
 		
 		Start start = new Start();
 		
-//		Student student = new Student();
-//		student.setId(22);
-//		student.setAddress("wdsfsdfee");
-//		
-//		
-//		Student newlyAddedStudent = start.feedStudentData();
-//		
-//		start.printStudentData(newlyAddedStudent);
+		// Student student = new Student();
+		// student.setId(22);
+		// student.setAddress("wdsfsdfee");
+		
+		
+		// Student newlyAddedStudent = start.feedStudentData();
+		
+		// start.printStudentData(newlyAddedStudent);
 		
 
 		// FileManipulation fileManipulation = new FileManipulation();
@@ -46,15 +46,22 @@ public class Start {
 		
 		
 		
-		// DataManipulation dataManipulation = new DataManipulation();
+		DataManipulation dataManipulation = new DataManipulation();
 		
-		// dataManipulation.readDataFromDatabase();
-		// dataManipulation.insertDataIntoDatabase();
-		// dataManipulation.readDataFromDatabase();
-		// dataManipulation.updateDataToDatabase();
-		// dataManipulation.readDataFromDatabase();
-		// dataManipulation.deleteDataFromDatabase();
-		// dataManipulation.readDataFromDatabase();
+		try {
+			System.out.println("\n=== Starting Database Operations ===");
+			dataManipulation.readDataFromDatabase();
+			dataManipulation.insertDataIntoDatabase();
+			dataManipulation.readDataFromDatabase();
+			dataManipulation.updateDataToDatabase();
+			dataManipulation.readDataFromDatabase();
+			dataManipulation.deleteDataFromDatabase();
+			dataManipulation.readDataFromDatabase();
+			System.out.println("=== Database Operations Complete ===\n");
+		} catch (Exception e) {
+			System.err.println("Error during database operations: " + e.getMessage());
+			e.printStackTrace();
+		}
 			
 	// File Copy Exercise
 		FileCopyExercise fileCopy = new FileCopyExercise();
@@ -98,7 +105,7 @@ public class Start {
 		Gender gender = new Gender();
 		
 		college.setId(1);
-		college.setName("SSSSS College");
+		college.setName("Stella Mary's");
 		college.setAddress("123,  Main Road, Nagercoil");
 		college.setEmail("admin@suncollege.com");
 		college.setPhone("42135235256265");

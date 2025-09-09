@@ -1,4 +1,4 @@
-CREATE DATABASE `student_management1`;
+CREATE DATABASE `student_management`;
 
 CREATE TABLE `genders` (
   `id` int NOT NULL AUTO_INCREMENT,
